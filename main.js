@@ -1,6 +1,10 @@
 var textoDigitado = document.querySelector(".textoarea");
 textoDigitado.focus();
 
+function limparTextoarea() {
+    textoDigitado.value = '';
+}
+
 function criptografia(){
     
     let texto = textoDigitado.value;
@@ -12,8 +16,8 @@ function criptografia(){
         .replace(/o/g, "obter")
         .replace(/u/g, "ufat");
     
-    
     document.querySelector(".mensagem").innerHTML = criptado;
+    limparTextoarea();
 }
 
 function descriptografia(){
@@ -28,11 +32,12 @@ function descriptografia(){
         .replace(/ufat/g, "u");
 
     document.querySelector(".mensagem").innerHTML = descriptado;
+    limparTextoarea();
 }
+
 
 function copia(){
     let copiado = document.querySelector(".mensagem").value;
     navigator.clipboard.writeText(copiado);
     alert("Texto copiado com sucesso!");
 }
-
